@@ -34,7 +34,9 @@ set -gx LESS_TERMCAP_se \e'[0m'        # reset reverse video
 set -gx LESS_TERMCAP_ue \e'[0m'        # reset underline
 set -gx GROFF_NO_SGR 1                  # for konsole and gnome-terminal
 
-bind --preset $argv \cH backward-kill-word
+bind --preset $argv \cH backward-kill-word #C-Backspace
+bind --preset $argv \e\[3\;5~ kill-word #C-Delete
+bind --preset $argv \e\[3\;3~ kill-word #Alt-Delete
 function gn
     command grep --color $argv . -rn 
 end
