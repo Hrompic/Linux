@@ -11,6 +11,14 @@ alias du='du -h'
 alias rm='rm -i' 
 alias cp='cp -i' 
 alias mv='mv -i'
+alias j='jobs'
+alias fg1='fg %1'
+alias f='fg'
+alias fg2='fg %2'
+alias fg3='fg %3'
+alias fg4='fg %4'
+alias fg5='fg %5'
+alias fg6='fg %6'
 alias cd1='cd ..'
 alias cd2='cd ../..'
 alias cd3='cd ../../..'
@@ -33,6 +41,9 @@ set -gx LESS_TERMCAP_me \e'[0m'        # reset bold/blink
 set -gx LESS_TERMCAP_se \e'[0m'        # reset reverse video
 set -gx LESS_TERMCAP_ue \e'[0m'        # reset underline
 set -gx GROFF_NO_SGR 1                  # for konsole and gnome-terminal
+for i in (seq 11)
+    alias f"$i"="f %$i"
+end
 function my_key_bindings
     fish_default_key_bindings    
     bind --preset $argv \cH backward-kill-word #C-Backspace
